@@ -1,10 +1,13 @@
 import type {Metadata} from "next";
 import {Inter as FontSans} from "next/font/google";
 import "./globals.css";
-import { cn } from "@/lib/utils";
+import {cn} from "@/lib/utils";
 
 import {ThemeProvider} from "@/components/theme-provider";
 import {ThemeToggle} from "@/components/theme-toggle";
+import Footer from "@/components/footer/footer";
+import Header from "@/components/header/header";
+import Sidebar from "@/components/sidebar/sidebar";
 
 const fontSans = FontSans({
     subsets: ["latin"],
@@ -25,9 +28,16 @@ export default function RootLayout({
         <html lang="pt-br" suppressHydrationWarning>
             <body className={cn("antialiased", fontSans.variable)}>
                 <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-                    <main>{children}</main>
-                    <div className="fixed bottom-10 right-10">
-                        <ThemeToggle />
+                    <div className="h-screen max-h-screen w-screen">
+                        <Sidebar />
+                        <div className="flex-1 flex flex-col">
+                            <Header />
+                            <main>{children}</main>
+                            <Footer />
+                            <div className="fixed bottom-10 right-10">
+                                <ThemeToggle />
+                            </div>
+                        </div>
                     </div>
                 </ThemeProvider>
             </body>
