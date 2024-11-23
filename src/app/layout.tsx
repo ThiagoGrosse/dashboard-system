@@ -36,7 +36,7 @@ export default function RootLayout({
                                 <Header />
                                 <main>{children}</main>
                                 <Footer />
-                                <div className="fixed bottom-10 right-10">
+                                <div className="fixed bottom-14 right-10">
                                     <ThemeToggle />
                                 </div>
                             </div>

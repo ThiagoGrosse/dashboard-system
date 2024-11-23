@@ -12,7 +12,7 @@ export default function Header() {
     };
 
     return (
-        <nav className="p-5 w-full flex justify-between items-center">
+        <nav className="p-5 w-full flex justify-between items-center bg-blue-700 text-white">
             <button type="button" onClick={openSidebar}>
                 <Menu />
             </button>
