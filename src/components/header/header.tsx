@@ -2,6 +2,7 @@
 
 import {Menu} from "lucide-react";
 import {useSidebar} from "../sidebar-provider";
+import {MenuHeader} from "./components/menu-header";
 
 export default function Header() {
     const {toggleSidebar} = useSidebar();
@@ -11,10 +12,12 @@ export default function Header() {
     };
 
     return (
-        <div className="p-5">
+        <nav className="p-5 w-full flex justify-between items-center">
             <button type="button" onClick={openSidebar}>
                 <Menu />
             </button>
-        </div>
+
+            <MenuHeader />
+        </nav>
     );
 }
