@@ -1,6 +1,7 @@
 "use client";
 
 import {SubMenuItem} from "@/types/MenusTypes";
+import Link from "next/link";
 
 type Props = {
     items: SubMenuItem;
@@ -8,10 +9,12 @@ type Props = {
 
 export default function MenuFinal({items}: Props) {
     return (
-        <div>
-            <div>
-                <span>{items.title}</span>
-            </div>
-        </div>
+        <li>
+            <button className="w-full text-left px-4 py-2 rounded-md">
+                <Link href={items.url} className="flex gap-2 items-center">
+                    {items.title}
+                </Link>
+            </button>
+        </li>
     );
 }

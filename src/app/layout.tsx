@@ -8,6 +8,7 @@ import {ThemeToggle} from "@/components/theme-toggle";
 import Footer from "@/components/footer/footer";
 import Header from "@/components/header/header";
 import Sidebar from "@/components/sidebar/sidebar";
+import {SidebarProvider} from "@/components/sidebar-provider";
 
 const fontSans = FontSans({
     subsets: ["latin"],
@@ -28,17 +29,19 @@ export default function RootLayout({
         <html lang="pt-br" suppressHydrationWarning>
             <body className={cn("antialiased", fontSans.variable)}>
                 <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-                    <div className="h-screen max-h-screen w-screen">
-                        <Sidebar />
-                        <div className="flex-1 flex flex-col">
-                            <Header />
-                            <main>{children}</main>
-                            <Footer />
-                            <div className="fixed bottom-10 right-10">
-                                <ThemeToggle />
+                    <SidebarProvider>
+                        <div className="h-screen max-h-screen w-screen">
+                            <Sidebar />
+                            <div className="flex-1 flex flex-col">
+                                <Header />
+                                <main>{children}</main>
+                                <Footer />
+                                <div className="fixed bottom-10 right-10">
+                                    <ThemeToggle />
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </SidebarProvider>
                 </ThemeProvider>
             </body>
         </html>
